@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=169433
+  -->
+<configuration>
+  <connectionStrings>
+    <add name="CommunityMedicineAutomationDBConnString" connectionString="SERVER=POLASH;Database=CommunityMedicineAutomationDB;Integrated Security=true" providerName="System.Data.SqlClient"/>
+  </connectionStrings>
+  <system.web>
+    
+    <compilation debug="true" targetFramework="4.5">
+      <assemblies>
+        <add assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35"/>
+      </assemblies>
+    </compilation>
+    <httpRuntime targetFramework="4.5"/>
+    
+    <httpHandlers>
+      <add path="egismaptiled.axd" verb="*" type="EGIS.Web.Controls.TiledSFMapImageProvider, EGIS.Web.Controls, Culture=neutral, PublicKeyToken=05b98c869b5ffe6a"
+        validate="true" />
+      <add path="egismap.axd" verb="*" type="EGIS.Web.Controls.SFMapImageProvider, EGIS.Web.Controls, Version=4.3.0.0, Culture=neutral, PublicKeyToken=05b98c869b5ffe6a"
+        validate="true" />
+    </httpHandlers>
+
+    <authentication mode="Windows"/>
+    <pages controlRenderingCompatibilityVersion="3.5" clientIDMode="AutoID"/>
+    
+  </system.web>
+
+  <system.webServer>
+    
+    <validation validateIntegratedModeConfiguration="false" />
+    <modules runAllManagedModulesForAllRequests="true"/>
+    <handlers>
+     <remove name="ChartImageHandler"/>
+      
+      <add name="ChartImageHandler" preCondition="integratedMode" verb="GET,HEAD,POST" path="ChartImg.axd" type="System.Web.UI.DataVisualization.Charting.ChartHttpHandler, System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+      <add name="TiledSFMapImageProvider" path="egismaptiled.axd" verb="*" type="EGIS.Web.Controls.TiledSFMapImageProvider, EGIS.Web.Controls" resourceType="Unspecified"/>
+      <add name="SFMapImageProvider" path="egismap.axd" verb="*" type="EGIS.Web.Controls.SFMapImageProvider, EGIS.Web.Controls" resourceType="Unspecified"/>
+    </handlers>
+    
+  </system.webServer>
+  
+  
+
+</configuration>

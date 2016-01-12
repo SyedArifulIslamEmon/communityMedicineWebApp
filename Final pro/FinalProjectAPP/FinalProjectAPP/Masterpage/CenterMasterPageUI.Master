@@ -1,0 +1,81 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="CenterMasterPageUI.master.cs" Inherits="FinalProjectAPP.Masterpage.CenterMasterPageUI" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link href="../jquery-ui-themes-1.11.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" />
+    <link href="../Design.css" rel="stylesheet" />
+    <title>
+        <asp:ContentPlaceHolder ID="TittlePlaceHolder" runat="server">
+        </asp:ContentPlaceHolder>
+    </title>
+
+    <asp:ContentPlaceHolder ID="HeaderPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+    <script src="http://localhost:47606/Scripts/jquery-1.6.4.min.js"></script>
+    <script src="http://localhost:47606/Scripts/jquery-ui-1.11.4.min.js"></script>
+
+    <%--<script>
+        $(document).ready(function () {
+            $('#dateTextBox').unbind();
+            $("#dateTextBox").datepicker();
+            $("#startDateText").datepicker();
+            $("#endDateText").datepicker();
+
+        });
+    </script>--%>
+  
+
+    <%--<style type="text/css">
+        .content {
+            text-align: center;
+        }
+    </style>--%>
+
+</head>
+<body class="news">
+
+ 
+
+    <div class="wrapper">
+
+
+        <header>
+            <div class="nav">
+                
+                <ul>
+                    <li><a href="../CenterUI/AllTreatmentHistoryUI.aspx">All Treatment History</a></li>
+                    
+                    <li><a href="../CenterUI/DoctorEntryUI.aspx">Doctor EntryUI</a></li>
+                    <li><a href="../CenterUI/MedicineStockReportUI.aspx">Medicine Stock Report</a></li>
+                    <li><a href="../CenterUI/TreatmentUI.aspx">Treatment</a></li>
+                    <li><a href="../LogoutUI.aspx">Logout</a></li> 
+                    
+
+                </ul>
+            </div>
+        </header>
+
+
+
+
+        <div class="content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+
+
+
+
+        <%--        <div class="footer" align="center">
+            Center Section @ Community Medicine Automation 2015
+        </div>--%>
+    </div>
+
+
+
+
+</body>
+</html>
